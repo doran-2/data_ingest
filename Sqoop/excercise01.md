@@ -1,3 +1,29 @@
+[training@localhost ~]$ sqoop eval \
+> --connect jdbc:mysql://localhost/loudacre \
+> --username training --password training \
+> --query "describe accounts"
+19/03/10 22:05:30 INFO sqoop.Sqoop: Running Sqoop version: 1.4.6-cdh5.7.0
+19/03/10 22:05:31 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+19/03/10 22:05:31 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+---------------------------------------------------------------------------------------------------------
+| Field                | Type                 | Null | Key | Default              | Extra                | 
+---------------------------------------------------------------------------------------------------------
+| acct_num             | int(11)              | NO  | PRI | (null)               |                      | 
+| acct_create_dt       | datetime             | NO  |     | (null)               |                      | 
+| acct_close_dt        | datetime             | YES |     | (null)               |                      | 
+| first_name           | varchar(255)         | NO  |     | (null)               |                      | 
+| last_name            | varchar(255)         | NO  |     | (null)               |                      | 
+| address              | varchar(255)         | NO  |     | (null)               |                      | 
+| city                 | varchar(255)         | NO  |     | (null)               |                      | 
+| state                | varchar(255)         | NO  |     | (null)               |                      | 
+| zipcode              | varchar(255)         | NO  |     | (null)               |                      | 
+| phone_number         | varchar(255)         | NO  |     | (null)               |                      | 
+| created              | datetime             | NO  |     | (null)               |                      | 
+| modified             | datetime             | NO  |     | (null)               |                      | 
+---------------------------------------------------------------------------------------------------------
+[training@localhost ~]$ 
+
+
 [training@localhost ~]$ sqoop import \
 > --connect jdbc:mysql://localhost/loudacre \
 > --username training --password training \
