@@ -6,12 +6,12 @@ agent1.sinks = mySink
 agent1.channels = myChannel
 
 # Describe/configure the source
-agent1.sources.mySource.type = Netcat
+agent1.sources.mySource.type = netcat
 agent1.sources.mySource.bind = localhost
 agent1.sources.mySource.port = 44444
 
 # Describe the sink
-agent1.mySink.type = logger
+agent1.sinks.mySink.type = logger
 
 # Use a channel which buffers events in memory
 agent1.channels.myChannel.type = memory
@@ -20,4 +20,5 @@ agent1.channels.myChannel.transactionCapacity = 100
 
 #Bind the source and sink to the channel
 agent1.sources.mySource.channels = myChannel
-agent.sinks.mySink.channel = myChannel
+agent1.sinks.mySink.channel = myChannel
+agent1.sinks.mySink.channel = myChannel
