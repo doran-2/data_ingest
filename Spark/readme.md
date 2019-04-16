@@ -13,7 +13,7 @@
 ```python
 devicestatus_files="/loudacre/devicestatus.txt"
 
-#필터 값을 이용하여 데이터 추출
+#필터 값을 이용하여 조건에 맞는 데이터 추출
 myrdd1 = sc.textFile(devicestatus_files)\
     .filter(lambda val: len(val) > 20)\
     .map(lambda val: val.split(val[19:20]))\
@@ -23,7 +23,7 @@ myrdd1 = sc.textFile(devicestatus_files)\
 #myrdd1.take(2)
 
 
-#날짜, 제조사, 장비ID, 경위도값만 표시
+#날짜, 제조사, 장비ID, 경위도값만 남김
 myrdd2 = myrdd1\
     .map(lambda val: (val[0], val[1].split(' ')[0], val[2], val[12], val[13]))\
     .map(lambda val: ','.join(val)) 
